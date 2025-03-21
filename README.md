@@ -1,6 +1,7 @@
 # Bookshelf App Starter Project
 
 Ini adalah starter project untuk siswa yang sedang mengerjakan tugas akhir kelas Belajar Membuat Front-End Web untuk Pemula.
+Live Website: https://noraaxzsy.github.io/Belajar-Membuat-Front-End-Web-untuk-Pemula_BookshelfApp/
 
 ## Ketentuan Pengerjaan Tugas
 
