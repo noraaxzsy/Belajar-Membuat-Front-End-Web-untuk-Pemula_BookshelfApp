@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+    <!-- Impor script kamu di sini -->
+    <!-- Lampirkan `defer` jika pemanggilan dilakukan dalam <head> -->
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+      integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Bookshelf App</h1>
+    </header>
+
+    <main>
+      <section class="addNewBook_section">
+        <h2>Tambah Buku Baru</h2>
+        <form id="bookForm" data-testid="bookForm">
+          <div class="input">
+            <label for="bookFormTitle" class="labeli">Judul</label>
+            <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" placeholder="Masukkan judul buku" />
+          </div>
+          <div class="input">
+            <label for="bookFormAuthor" class="labeli">Penulis</label>
+            <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" placeholder="Masukkan nama penulis" />
+          </div>
+          <div class="input">
+            <label for="bookFormYear" class="labeli">Tahun</label>
+            <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" placeholder="Masukkan tahun terbit" />
+          </div>
+          <div class="inputCheck">
+            <label for="bookFormIsComplete">Selesai dibaca</label>
+            <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox" />
+          </div>
+          <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
+        </form>
+      </section>
+
+      <section class="search_section">
+        <h2>Cari Buku</h2>
+        <form id="searchBook" data-testid="searchBookForm">
+          <label for="searchBookTitle">Judul</label>
+          <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" class="searchTerm" placeholder="Masukkan judul buku" />
+          <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </section>
+
+      <section class="bookShelf_section">
+        <h2>Belum selesai dibaca</h2>
+
+        <div id="incompleteBookList" data-testid="incompleteBookList" class="bookList">
+          <!-- 
+            Ini adalah struktur HTML untuk masing-masing buku.
+            Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
+          -->
+          <!-- <div data-bookid="123123123" data-testid="bookItem" class="bookItem">
+            <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
+            <p data-testid="bookItemAuthor">Penulis: Penulis Buku 1</p>
+            <p data-testid="bookItemYear">Tahun: 2030</p>
+            <div class="action_list">
+              <button data-testid="bookItemIsCompleteButton" id="buttonCard1" class="buttonCard"><i class="fa-solid fa-circle-check"></i>Selesai dibaca</button>
+              <button data-testid="bookItemDeleteButton" id="buttonCard2" class="buttonCard"><i class="fa-solid fa-trash"></i>Hapus Buku</button>
+              <button data-testid="bookItemEditButton" id="buttonCard3" class="buttonCard"><i class="fa-solid fa-pen-to-square"></i>Edit Buku</button>
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      <section class="bookShelf_section">
+        <h2>Selesai dibaca</h2>
+
+        <div id="completeBookList" data-testid="completeBookList" class="bookList">
+          <!-- 
+            Ini adalah struktur HTML untuk masing-masing buku.
+            Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
+          -->
+          <!-- <div data-bookid="456456456" data-testid="bookItem" class="bookItem">
+            <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
+            <p data-testid="bookItemAuthor">Penulis: Penulis Buku 2</p>
+            <p data-testid="bookItemYear">Tahun: 2030</p>
+            <div class="action_list">
+              <button data-testid="bookItemIsCompleteButton" id="buttonCard4" class="buttonCard"><i class="fa-solid fa-rotate-left"></i></i>Belum selesai</button>
+              <button data-testid="bookItemDeleteButton" id="buttonCard2" class="buttonCard"><i class="fa-solid fa-trash"></i>Hapus Buku</button>
+              <button data-testid="bookItemEditButton" id="buttonCard3" class="buttonCard"><i class="fa-solid fa-pen-to-square"></i>Edit Buku</button>
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      <section id="editModal" class="modal" data-testid="editBookModal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()" data-testid="editBookCloseButton">&times;</span>
+          <h2>Edit Buku</h2>
+          <form id="editBookForm" data-testid="editBookForm">
+            <div class="editInput">
+              <label for="editTitle" class="labeli">Judul:</label>
+              <input type="text" id="editTitle" data-testid="editBookTitleInput" required />
+            </div>
+            <div class="editInput">
+              <label for="editAuthor" class="labeli">Penulis:</label>
+              <input type="text" id="editAuthor" data-testid="editBookAuthorInput" required />
+            </div>
+            <div class="editInput">
+              <label for="editYear" class="labeli">Tahun:</label>
+              <input type="number" id="editYear" data-testid="editBookYearInput" required />
+            </div>
+            <button id="bookFormSubmit" type="submit" data-testid="editBookSubmitButton">Simpan Perubahan</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
