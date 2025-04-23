@@ -37,3 +37,46 @@ Untuk mempermudah penilaian submission yang dikirim, Anda perlu memahami ketentu
 ```
 
 Selamat mengerjakan dan sukses selalu!
+
+Buatlah aplikasi web yang dapat memasukan data buku ke dalam rak, memindahkan data buku antar rak, dan menghapus data buku dari rak.
+
+Untuk lebih jelasnya, ada lima kriteria wajib yang harus Anda penuhi.
+
+<b>Kriteria Wajib 1: Gunakan localStorage sebagai Penyimpanan</b>
+<br>Data buku yang ditampilkan pada rak-rak harus dapat bertahan walaupun halaman web ditutup. Dengan begitu, Anda harus menyimpan data buku pada localStorage.
+Setiap buku harus berupa objek JavaScript yang membawa beberapa data berikut. Pastikan nama properti beserta tipe data value-nya juga sesuai.<br>
+Format objek beserta tipe data nilainya.<br>
+
+{
+  id: string | number,
+  title: string,
+  author: string,
+  year: number,
+  isComplete: boolean,
+}
+<br>
+
+
+<b>Kriteria Wajib 2: Mampu Menambahkan Buku</b><br>
+Aplikasi harus mampu menyimpan buku baru menggunakan formulir yang telah disediakan dalam starter project.<br>
+ID buku harus dihasilkan secara otomatis dan unik. Tipsnya, Anda dapat memanfaatkan timestamp sebagai nilainya. Nilai timestamp dapat diperoleh dengan kode new Date().getTime() atau Number(new Date()).<br>
+Formulir setidaknya bisa menghasilkan empat data berikut.<br>
+title: judul buku.<br>
+author: penulis buku.<br>
+year: tahun rilis buku bertipe number.<br>
+isComplete: kondisi apakah sudah selesai dibaca atau belum.<br>
+
+
+<b>Kriteria Wajib 3: Memiliki Dua Rak Buku</b><br>
+Aplikasi wajib memiliki 2 Rak buku, yakni “Belum selesai dibaca” dan “Selesai dibaca”.<br>
+Rak "Belum selesai dibaca" hanya menyimpan buku-buku dengan isComplete bernilai false.<br>
+Rak "Selesai dibaca" hanya menyimpan buku-buku dengan isComplete bernilai true.<br>
+
+
+<b>Kriteria Wajib 4: Dapat Memindahkan Buku Antar Rak</b> <br>
+Buku-buku dalam rak harus dapat dipindahkan ke rak lainnya, baik "Belum selesai dibaca" maupun "Selesai dibaca". Pastikan perubahan ini juga tersimpan dalam localStorage.
+<br>
+
+
+<b>Kriteria Wajib 5: Dapat Menghapus Data Buku</b> <br>
+Buku yang ditampilkan pada rak, baik itu "Belum selesai dibaca" maupun "Selesai dibaca" harus dapat dihapus. Selain menghilang dari halaman, data buku dalam localStorage juga harus terhapus.
